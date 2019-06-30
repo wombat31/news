@@ -4,6 +4,10 @@ let imageURLS = [];
 let imageLinks = [];
 
 function getNews(){
+    var countryCodeSelector = document.getElementById("countrySelector");
+    var countryCode = countryCodeSelector.options[countryCodeSelector.selectedIndex].value;
+    var subjectCodeSelector = document.getElementById("subjectSelector");
+    var subjectCode = subjectCodeSelector.options[subjectCodeSelector.selectedIndex].value;
     var url = 'https://newsapi.org/v2/top-headlines?' +
           'country=us&' +
           'apiKey=bd2270499a9b4c4890bf927eb04c8cfd';
@@ -33,6 +37,9 @@ function getNews(){
         console.log(storyContent);
         console.log(imageURLS);
         console.log(imageLinks);
+        //console.log(countryCodeSelector);
+        console.log(countryCode);
+        console.log(subjectCode);
          
     renderNews(); 
 }  

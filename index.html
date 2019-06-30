@@ -12,19 +12,38 @@
     </script>-->
 </head>
 <body>
-<header>
-    <div id="headerLeftContainer">
-        <button type="button" id="newsButton" onclick="getNews()">Get the latest News!</button>
+    <header>
+        <div id="headerLeftContainer">
+            
+            <select id="countrySelector">
+                <option value = "">World</option>
+                <option value = "gb">United Kingdom</option>
+                <option value = "us">United States of America</option>
+                <option value = "za">South Africa</option>
+                <option value = "ae">United Arab Emirates</option>
+                <option value = "au">Australia</option>
+                <option value = "ph">Phillipines</option>
+            </select>
+            <select id="subjectSelector">
+                <option value = "headlines">Headlines</option>
+                <option value = "technology">Technology</option>
+                <option value = "sports">Sports</option>
+                <option value = "science">Science</option>
+                <option value = "health">Health</option>
+                <option value = "entertainment">Entertainment</option>
+                <option value = "business">Business</option>
+            </select>
+            <button type="button" id="newsButton" onclick="getNews()">Get the latest News!</button>
+        </div>
+        <div id="headerRightContainer"></div>
+    </header>
+    <main>
+    <div id="topContainer">
+        <h1>Breaking News</h1>
+        <p>For all the latest headlines</p>
     </div>
-    <div id="headerRightContainer"></div>
-</header>
-<main>
-<div id="topContainer">
-    <h1>Breaking News</h1>
-    <p>For all the latest headlines</p>
-</div>
-<div id="bottomContainer">
-<p id="news"></p>
-</div>
+    <div id="bottomContainer">
+        <p id="news"></p>
+    </div>
 </body>
 </html>
