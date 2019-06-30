@@ -4,13 +4,34 @@ let imageURLS = [];
 let imageLinks = [];
 
 function getNews(){
+    //get the values from the html dropdown boxes
     var countryCodeSelector = document.getElementById("countrySelector");
     var countryCode = countryCodeSelector.options[countryCodeSelector.selectedIndex].value;
     var subjectCodeSelector = document.getElementById("subjectSelector");
     var subjectCode = subjectCodeSelector.options[subjectCodeSelector.selectedIndex].value;
-    var url = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=bd2270499a9b4c4890bf927eb04c8cfd';
+    //build search url
+    if (subjectCode == 'headlines'){
+        var url = 'https://newsapi.org/v2/top-headlines?' +
+        'country=' + 
+        countryCode +
+        '&' +
+        'apiKey=bd2270499a9b4c4890bf927eb04c8cfd';
+    } else {
+        var url = 'https://newsapi.org/v2/top-headlines?' +
+        'country=' + 
+        countryCode +
+        '&' +
+        'category=' +
+        subjectCode +
+        '&' +
+        'apiKey=bd2270499a9b4c4890bf927eb04c8cfd';
+    };
+
+
+    //working url and key follows
+    //var url = 'https://newsapi.org/v2/top-headlines?' +
+          //'country=us&' +
+          //'apiKey=bd2270499a9b4c4890bf927eb04c8cfd';
     var req = new Request(url);
     console.log(req);
     
