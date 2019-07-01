@@ -3,6 +3,52 @@ let storyContent = [];
 let imageURLS = [];
 let imageLinks = [];
 
+function renderScreen() {
+    getInitialImages();
+    renderInitialImages();
+}
+
+window.onload = renderScreen;
+
+function getInitialImages (){
+    var url = 'https://newsapi.org/v2/top-headlines?' +
+    'country=gb&' +
+    'apiKey=bd2270499a9b4c4890bf927eb04c8cfd';
+
+    var req = new Request(url);
+
+    fetch(req)
+        .then(resp => resp.json())
+        .then(({articles}) => {/*console.log(articles)*/; return articles; })
+        .then(story => {
+            for (var prop in story){
+                if (story.hasOwnProperty(prop)){
+                    
+                    imageURLS.push(story[prop].urlToImage);
+                    imageLinks.push(story[prop].url);
+                }
+            }
+        })
+    //console.log(imageURLS);
+}
+
+function renderInitialImages (){
+    //for (i=0; i < 15; i++){
+    for (var count in imageURLS){
+        //var tempDiv = document.createElement("div");
+        //tempDiv.style.color = "red";
+        //document.getElementById("news").appendChild(tempDiv);
+        /*var img = document.createElement("img");
+        img.src = imageURLS[count];
+        img.style.width = "100%";
+        img.style.padding = "20px";
+        document.getElementById("news").appendChild(img);*/
+        //console.log(imageURLS[count]);
+        console.log[count];
+    }
+    console.log(imageURLS);
+}
+/*
 function getNews(){
     //get the values from the html dropdown boxes
     var countryCodeSelector = document.getElementById("countrySelector");
@@ -64,7 +110,8 @@ function getNews(){
          
     renderNews(); 
 }  
-
+*/
+/*
 function renderNews(){
     for (var count in storyTitles){
         
@@ -92,3 +139,4 @@ function renderNews(){
         document.getElementById("news").appendChild(img);
     }
 }
+*/
